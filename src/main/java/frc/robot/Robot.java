@@ -35,32 +35,32 @@ public class Robot extends TimedRobot {
 
   //DRIVE TRAIN DEFINITIONS
 
-  private final WPI_VictorSPX m_leftMotor1 = new WPI_VictorSPX(Map.m_leftMotor1);
-  private final WPI_VictorSPX m_leftMotor2 = new WPI_VictorSPX(Map.m_leftMotor2);
-  private final WPI_VictorSPX m_rightMotor1 = new WPI_VictorSPX(Map.m_rightMotor1);
-  private final WPI_VictorSPX m_rightMotor2 = new WPI_VictorSPX(Map.m_rightMotor2);
+  private final WPI_VictorSPX leftMotor1 = new WPI_VictorSPX(RobotMap.m_leftMotor1);
+  private final WPI_VictorSPX leftMotor2 = new WPI_VictorSPX(RobotMap.m_leftMotor2);
+  private final WPI_VictorSPX rightMotor1 = new WPI_VictorSPX(RobotMap.m_rightMotor1);
+  private final WPI_VictorSPX rightMotor2 = new WPI_VictorSPX(RobotMap.m_rightMotor2);
 
-  private final SpeedControllerGroup m_leftMotors = new SpeedControllerGroup(m_leftMotor1, m_leftMotor2);
-  private final SpeedControllerGroup m_rightMotors = new SpeedControllerGroup(m_rightMotor1, m_rightMotor2);
+  private final SpeedControllerGroup m_leftMotors = new SpeedControllerGroup(leftMotor1, leftMotor2);
+  private final SpeedControllerGroup m_rightMotors = new SpeedControllerGroup(rightMotor1, rightMotor2);
 
   private final DifferentialDrive m_driveTrain = new DifferentialDrive(m_leftMotors, m_rightMotors);
 
-  private final Encoder m_leftEncoder = new Encoder(Map.m_leftEnc1,Map.m_leftEnc2);
-  private final Encoder m_rightEncoder = new Encoder(Map.m_rightEnc1,Map.m_rightEnc2);
+  private final Encoder m_leftEncoder = new Encoder(RobotMap.m_leftEnc1,RobotMap.m_leftEnc2);
+  private final Encoder m_rightEncoder = new Encoder(RobotMap.m_rightEnc1,RobotMap.m_rightEnc2);
 
   //CONTROLLER DEFINITIONS
 
-  private final XboxController m_driverController = new XboxController(Map.DRIVER_CONTROLLER);
-  private final XboxController m_operatorController = new XboxController(Map.OPERATOR_CONTROLLER);
+  private final XboxController m_driverController = new XboxController(RobotMap.DRIVER_CONTROLLER);
+  private final XboxController m_operatorController = new XboxController(RobotMap.OPERATOR_CONTROLLER);
 
   private double triggerVal = 
     (m_driverController.getTriggerAxis(Hand.kRight)
     - m_driverController.getTriggerAxis(Hand.kLeft))
-    * Map.DRIVING_SPEED;
+    * RobotMap.DRIVING_SPEED;
 
   private double stick = 
     (m_driverController.getX(Hand.kLeft))
-    * Map.TURNING_RATE;
+    * RobotMap.TURNING_RATE;
   
   //GAME TIMER
   
